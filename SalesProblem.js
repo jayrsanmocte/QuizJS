@@ -1,9 +1,14 @@
-const sampleData = [
-    ["Product A", 500],
-    ["Product B", -200],
-    ["Product C", 100],
-    ["Product D", -100],
+const Productsample = [
+    ["Product A", -75],
+    ["Product B", -70],
+    ["Product C", 95],
+    ["Product D", 5],
+    ["Product E", 88],
+    ["Product F", 29],
   ];
+
+ 
+
 
 function topProduct(productProfitArray) {
     if (productProfitArray.length === 0) {
@@ -65,6 +70,6 @@ function topProduct(productProfitArray) {
 
  
   
-  console.log("Top Product:", topProduct(sampleData));
-  console.log("Bottom Product:", bottomProduct(sampleData));
-  console.log("Zero Profit Product:", zeroProfitProduct(sampleData));
+  console.log("Top Product:", topProduct(Productsample));
+  console.log("Bottom Product:", bottomProduct(Productsample));
+  console.log("Zero Profit Product:", zeroProfitProduct(Productsample));
