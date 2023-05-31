@@ -1,90 +1,10 @@
-// const Productsample = [
-//     ["Product A", -75],
-//     ["Product B", -70],
-//     ["Product C", 95],
-//     ["Product D", 5],
-//     ["Product E", 88],
-//     ["Product F", 29],
-//   ];
-
- 
-
-// function topProduct(productProfitArray) {
-//     if (productProfitArray.length === 0) {
-//       return "No Data";
-//     }
-  
-//     let maxProfit = -Infinity;
-//     let topProduct = null;
-  
-//     for (const [product, profit] of productProfitArray) {
-//       if (profit > maxProfit) {
-//         maxProfit = profit;
-//         topProduct = product;
-//       }
-//     }
-  
-//     return topProduct;
-//   }
-  
-//   function bottomProduct(productProfitArray) {
-//     if (productProfitArray.length === 0) {
-//       return "No Data";
-//     }
-  
-//     let minProfit = Infinity;
-//     let bottomProduct = null;
-  
-//     for (const [product, profit] of productProfitArray) {
-//       if (profit < minProfit) {
-//         minProfit = profit;
-//         bottomProduct = product;
-//       }
-//     }
-  
-//     return bottomProduct;
-//   }
-  
-//   function zeroProfitProduct(productProfitArray) {
-//     if (productProfitArray.length === 0) {
-//       return "No Data";
-//     }
-  
-//     let closestProfit = Infinity;
-//     let zeroProduct = null;
-  
-//     for (const [product, profit] of productProfitArray) {
-//       if (Math.abs(profit) < Math.abs(closestProfit)) {
-//         closestProfit = profit;
-//         zeroProduct = product;
-//       } else if (Math.abs(profit) === Math.abs(closestProfit) && profit > 0) {
-//         closestProfit = profit;
-//         zeroProduct = product;
-//       }
-//     }
-  
-//     return zeroProduct;
-//   }
-  
-
-//   const emptyArray = [];
-
-  
-// console.log("Top Product:", topProduct(Productsample));
-// console.log("Bottom Product:", bottomProduct(Productsample));
-// console.log("Zero Profit Product:", zeroProfitProduct(Productsample));
-
-// console.log("Top Product:", topProduct(emptyArray)); 
-// console.log("Bottom Product:", bottomProduct(emptyArray)); 
-// console.log("Zero Profit Product:", zeroProfitProduct(emptyArray)); 
-
-const productSample = [
-  ["Product A", -75],
-  ["Product B", -70],
-  ["Product C", 95],
-  ["Product D", 5],
-  ["Product E", 88],
-  ["Product F", 29],
+let productProfitArray = [
+  { name: "Product A", profit: -5 },
+  { name: "Product B", profit: 5 },
+  { name: "Product C", profit: 93 },
+  { name: "Product D", profit: 84 },
+  { name: "Product E", profit: 88 },
+  { name: "Product F", profit: 44 },
 ];
 
 function findTopProduct(products) {
@@ -95,10 +15,10 @@ function findTopProduct(products) {
   let maxProfit = -Infinity;
   let topProduct = null;
 
-  for (const [product, profit] of products) {
+  for (const { name, profit } of products) {
     if (profit > maxProfit) {
       maxProfit = profit;
-      topProduct = product;
+      topProduct = name;
     }
   }
 
@@ -113,10 +33,10 @@ function findBottomProduct(products) {
   let minProfit = Infinity;
   let bottomProduct = null;
 
-  for (const [product, profit] of products) {
+  for (const { name, profit } of products) {
     if (profit < minProfit) {
       minProfit = profit;
-      bottomProduct = product;
+      bottomProduct = name;
     }
   }
 
@@ -131,29 +51,26 @@ function findZeroProfitProduct(products) {
   let closestProfit = Infinity;
   let zeroProfitProduct = null;
 
-  for (const [product, profit] of products) {
+  for (const { name, profit } of products) {
     if (Math.abs(profit) < Math.abs(closestProfit)) {
       closestProfit = profit;
-      zeroProfitProduct = product;
+      zeroProfitProduct = name;
     } else if (Math.abs(profit) === Math.abs(closestProfit) && profit > 0) {
       closestProfit = profit;
-      zeroProfitProduct = product;
+      zeroProfitProduct = name;
     }
   }
 
   return zeroProfitProduct;
 }
 
-const emptyArray = [];
+
+console.log("Top Product:", findTopProduct(productProfitArray));
+console.log("Bottom Product:", findBottomProduct(productProfitArray));
+console.log("Zero Profit Product:", findZeroProfitProduct(productProfitArray));
+
+// console.log("Top Product:", findTopProduct([]));
+// console.log("Bottom Product:", findBottomProduct([]));
+// console.log("Zero Profit Product:", findZeroProfitProduct([]));
 
 
-
-
-
-console.log("Top Product:", findTopProduct(productSample));
-console.log("Bottom Product:", findBottomProduct(productSample));
-console.log("Zero Profit Product:", findZeroProfitProduct(productSample));
-
-console.log("Top Product:", findTopProduct([]));
-console.log("Bottom Product:", findBottomProduct([]));
-console.log("Zero Profit Product:", findZeroProfitProduct([]));
